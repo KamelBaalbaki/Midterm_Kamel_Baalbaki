@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         btnHistory = findViewById(R.id.btnHistory);
         listView = findViewById(R.id.listView);
 
+        if (!NumberStorage.lastTable.isEmpty()) {
+            tableList.addAll(NumberStorage.lastTable);
+        }
+
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tableList);
         listView.setAdapter(adapter);
 
@@ -76,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
             adapter.notifyDataSetChanged();
+
+            NumberStorage.lastTable.clear();
+            NumberStorage.lastTable.addAll(tableList);
 
             if (!NumberStorage.historyNumbers.contains(number)) {
                 NumberStorage.historyNumbers.add(number);

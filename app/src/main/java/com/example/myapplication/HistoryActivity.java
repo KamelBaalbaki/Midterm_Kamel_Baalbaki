@@ -17,7 +17,6 @@ public class HistoryActivity extends AppCompatActivity {
 
     ListView listViewHistory;
     Button btnClearAll;
-
     Button btnBack;
 
     @Override
