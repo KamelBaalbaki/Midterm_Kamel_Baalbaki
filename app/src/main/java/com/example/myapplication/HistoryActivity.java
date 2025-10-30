@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,6 +18,8 @@ public class HistoryActivity extends AppCompatActivity {
     ListView listViewHistory;
     Button btnClearAll;
 
+    Button btnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +27,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         listViewHistory = findViewById(R.id.listViewHistory);
         btnClearAll = findViewById(R.id.btnClearAll);
+        btnBack = findViewById(R.id.btnBack);
 
         ArrayAdapter<Integer> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, NumberStorage.historyNumbers);
         listViewHistory.setAdapter(adapter);
@@ -36,6 +40,13 @@ public class HistoryActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(this, "No history to clear", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnBack.setOnClickListener(v -> {
+            // Simply return to MainActivity
+            Intent intent = new Intent(HistoryActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // optional, closes the current activity
         });
     }
 }
