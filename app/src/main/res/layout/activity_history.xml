@@ -1,56 +1,47 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="#FAFAFA">
-
-    <TextView
-        android:text="History"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"/>
+    android:gravity="center_horizontal"
+    android:background="@color/backgroundLight">
 
     <ListView
         android:id="@+id/listViewHistory"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="#BDBDBD"
-        android:dividerHeight="1dp" />
+        android:dividerHeight="1dp"
+        android:layout_marginBottom="15dp" />
 
-    <!-- Row for the two buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:weightSum="2">
+        android:layout_marginTop="10dp">
 
         <Button
-            android:id="@+id/btnClearAll"
-            android:text="Clear All"
+            android:id="@+id/backBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#E53935"
-            android:textColor="#FFFFFF"
-            android:layout_marginEnd="5dp"/>
+            android:text="@string/back_button"
+            android:textColor="@color/buttonText"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginEnd="6dp"
+            android:padding="10dp" />
 
         <Button
-            android:id="@+id/btnBack"
-            android:text="Back"
+            android:id="@+id/clearBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#03A9F4"
-            android:textColor="#FFFFFF"
-            android:layout_marginStart="5dp"/>
+            android:text="@string/clear_all_button"
+            android:textColor="@color/buttonText"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginStart="6dp"
+            android:padding="10dp" />
     </LinearLayout>
 
 </LinearLayout>

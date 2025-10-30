@@ -20,10 +20,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etNumber;
-    Button btnGenerate, btnHistory;
+    EditText enterNumber;
+    Button generateBtn, historyBtn;
     ListView listView;
-
     ArrayAdapter<String> adapter;
     List<String> tableList = new ArrayList<>();
     int currentNumber = -1;
@@ -33,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etNumber = findViewById(R.id.etNumber);
-        btnGenerate = findViewById(R.id.btnGenerate);
-        btnHistory = findViewById(R.id.btnHistory);
+        enterNumber = findViewById(R.id.enterNumber);
+        generateBtn = findViewById(R.id.generateBtn);
+        historyBtn = findViewById(R.id.historyBtn);
         listView = findViewById(R.id.listView);
 
         if (!NumberStorage.lastTable.isEmpty()) {
@@ -45,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tableList);
         listView.setAdapter(adapter);
 
-        btnGenerate.setOnClickListener(v -> generateTable());
-        btnHistory.setOnClickListener(v -> openHistory());
+        generateBtn.setOnClickListener(v -> generateTable());
+        historyBtn.setOnClickListener(v -> openHistory());
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
             String selectedItem = tableList.get(position);
@@ -64,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void generateTable() {
-        String input = etNumber.getText().toString().trim();
+        String input = enterNumber.getText().toString().trim();
         if (input.isEmpty()) {
             Toast.makeText(this, "Enter a number", Toast.LENGTH_SHORT).show();
             return;

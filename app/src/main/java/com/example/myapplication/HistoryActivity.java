@@ -16,8 +16,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class HistoryActivity extends AppCompatActivity {
 
     ListView listViewHistory;
-    Button btnClearAll;
-    Button btnBack;
+    Button clearBtn;
+    Button backBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +25,13 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         listViewHistory = findViewById(R.id.listViewHistory);
-        btnClearAll = findViewById(R.id.btnClearAll);
-        btnBack = findViewById(R.id.btnBack);
+        clearBtn = findViewById(R.id.clearBtn);
+        backBtn = findViewById(R.id.backBtn);
 
         ArrayAdapter<Integer> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, NumberStorage.historyNumbers);
         listViewHistory.setAdapter(adapter);
 
-        btnClearAll.setOnClickListener(v -> {
+        clearBtn.setOnClickListener(v -> {
             if (!NumberStorage.historyNumbers.isEmpty()) {
                 NumberStorage.historyNumbers.clear();
                 adapter.notifyDataSetChanged();
@@ -41,11 +41,10 @@ public class HistoryActivity extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(v -> {
-            // Simply return to MainActivity
+        backBtn.setOnClickListener(v -> {
             Intent intent = new Intent(HistoryActivity.this, MainActivity.class);
             startActivity(intent);
-            finish(); // optional, closes the current activity
+            finish();
         });
     }
 }

@@ -1,3 +1,17 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Multiplication Table</string>
+    <string name="enter_number_hint">Enter a number</string>
+    <string name="generate_button">Generate Table</string>
+    <string name="history_button">History</string>
+    <string name="back_button">Back</string>
+    <string name="clear_all_button">Clear All</string>
+    <string name="delete_row_title">Delete Row</string>
+    <string name="delete_row_message">Do you want to delete this row?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="enter_number_toast">Enter a number</string>
+    <string name="invalid_number_toast">Invalid number</string>
+    <string name="deleted_toast">Deleted:</string>
+    <string name="history_cleared_toast">All history cleared</string>
+    <string name="no_history_toast">No history to clear</string>
 </resources>
